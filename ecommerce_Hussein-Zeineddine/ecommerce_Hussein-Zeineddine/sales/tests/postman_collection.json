@@ -1,0 +1,134 @@
+{
+    "info": {
+      "name": "E-Commerce Sales Service",
+      "description": "Postman collection for testing the Sales microservice",
+      "_postman_id": "b92a7c8f-6ad6-4a5f-9d68-ecd3bf8a8961",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+      {
+        "name": "Process Sale",
+        "request": {
+          "url": {
+            "raw": "http://localhost:8003/sales",
+            "protocol": "http",
+            "host": [
+              "localhost"
+            ],
+            "port": "8003",
+            "path": [
+              "sales"
+            ]
+          },
+          "method": "POST",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"product_id\": 1,\n  \"customer_username\": \"testuser\",\n  \"quantity\": 2\n}"
+          }
+        },
+        "response": []
+      },
+      {
+        "name": "Process Sale - Insufficient Funds",
+        "request": {
+          "url": {
+            "raw": "http://localhost:8003/sales",
+            "protocol": "http",
+            "host": [
+              "localhost"
+            ],
+            "port": "8003",
+            "path": [
+              "sales"
+            ]
+          },
+          "method": "POST",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"product_id\": 1,\n  \"customer_username\": \"testuser\",\n  \"quantity\": 20\n}"
+          }
+        },
+        "response": []
+      },
+      {
+        "name": "Process Sale - Insufficient Stock",
+        "request": {
+          "url": {
+            "raw": "http://localhost:8003/sales",
+            "protocol": "http",
+            "host": [
+              "localhost"
+            ],
+            "port": "8003",
+            "path": [
+              "sales"
+            ]
+          },
+          "method": "POST",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"product_id\": 2,\n  \"customer_username\": \"testuser\",\n  \"quantity\": 10\n}"
+          }
+        },
+        "response": []
+      },
+      {
+        "name": "Get All Sales",
+        "request": {
+          "url": {
+            "raw": "http://localhost:8003/sales",
+            "protocol": "http",
+            "host": [
+              "localhost"
+            ],
+            "port": "8003",
+            "path": [
+              "sales"
+            ]
+          },
+          "method": "GET",
+          "header": []
+        },
+        "response": []
+      },
+      {
+        "name": "Get Sale by ID",
+        "request": {
+          "url": {
+            "raw": "http://localhost:8003/sales/{{sale_id}}",
+            "protocol": "http",
+            "host": [
+              "localhost"
+            ],
+            "port": "8003",
+            "path": [
+              "sales",
+              "{{sale_id}}"
+            ]
+          },
+          "method": "GET",
+          "header": []
+        },
+        "response": []
+      }
+    ]
+  }
+  

@@ -1,0 +1,75 @@
+services:
+  database:
+    image: postgres:13
+    env_file:
+      - .env
+    volumes:
+      - db_data:/var/lib/postgresql/data
+      - ./database/init_db.sql:/docker-entrypoint-initdb.d/init_db.sql
+    ports:
+      - "5432:5432"
+    networks:
+      - ecommerce_network
+
+  customers:
+    build: ./customers
+    ports:
+      - "8001:8000"
+    depends_on:
+      - database
+    env_file:
+      - .env
+    environment:
+      - DATABASE_URL=${DATABASE_URL}
+    networks:
+      - ecommerce_network
+
+  inventory:
+    build: ./inventory
+    ports:
+      - "8002:8000"
+    depends_on:
+      - database
+    env_file:
+      - .env
+    environment:
+      - DATABASE_URL=${DATABASE_URL}
+    networks:
+      - ecommerce_network
+
+  sales:
+    build: ./sales
+    ports:
+      - "8003:8000"
+    depends_on:
+      - database
+      - customers
+      - inventory
+    env_file:
+      - .env
+    environment:
+      - DATABASE_URL=${DATABASE_URL}
+    networks:
+      - ecommerce_network
+
+  reviews:
+    build: ./reviews
+    ports:
+      - "8004:8000"
+    depends_on:
+      - database
+      - customers
+      - inventory
+    env_file:
+      - .env
+    environment:
+      - DATABASE_URL=${DATABASE_URL}
+    networks:
+      - ecommerce_network
+
+networks:
+  ecommerce_network:
+    driver: bridge
+
+volumes:
+  db_data:

@@ -1,0 +1,202 @@
+{
+    "info": {
+      "_postman_id": "84d7c1d2-f15b-452f-b544-c7c2d218af3d",
+      "name": "Inventory Service API",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+      {
+        "name": "Add Goods",
+        "request": {
+          "method": "POST",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\"name\": \"Smartphone\", \"category\": \"electronics\", \"price\": 699.99, \"description\": \"Latest model smartphone with advanced features\", \"stock_count\": 50}"
+          },
+          "url": {
+            "raw": "http://localhost:8002/inventory",
+            "protocol": "http",
+            "host": [
+              "localhost"
+            ],
+            "port": "8002",
+            "path": [
+              "inventory"
+            ]
+          }
+        },
+        "response": []
+      },
+      {
+        "name": "Add Goods Invalid Category",
+        "request": {
+          "method": "POST",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\"name\": \"T-Shirt\", \"category\": \"invalid_category\", \"price\": 19.99, \"description\": \"Comfortable cotton t-shirt\", \"stock_count\": 100}"
+          },
+          "url": {
+            "raw": "http://localhost:8002/inventory",
+            "protocol": "http",
+            "host": [
+              "localhost"
+            ],
+            "port": "8002",
+            "path": [
+              "inventory"
+            ]
+          }
+        },
+        "response": []
+      },
+      {
+        "name": "Get All Goods",
+        "request": {
+          "method": "GET",
+          "header": [],
+          "url": {
+            "raw": "http://localhost:8002/inventory",
+            "protocol": "http",
+            "host": [
+              "localhost"
+            ],
+            "port": "8002",
+            "path": [
+              "inventory"
+            ]
+          }
+        },
+        "response": []
+      },
+      {
+        "name": "Get Goods Details",
+        "request": {
+          "method": "POST",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\"name\": \"Jeans\", \"category\": \"clothes\", \"price\": 49.99, \"description\": \"Stylish denim jeans\", \"stock_count\": 30}"
+          },
+          "url": {
+            "raw": "http://localhost:8002/inventory",
+            "protocol": "http",
+            "host": [
+              "localhost"
+            ],
+            "port": "8002",
+            "path": [
+              "inventory"
+            ]
+          }
+        },
+        "response": []
+      },
+      {
+        "name": "Get Goods Details by ID",
+        "request": {
+          "method": "GET",
+          "header": [],
+          "url": {
+            "raw": "http://localhost:8002/inventory/{item_id}",
+            "protocol": "http",
+            "host": [
+              "localhost"
+            ],
+            "port": "8002",
+            "path": [
+              "inventory",
+              "{item_id}"
+            ]
+          }
+        },
+        "response": []
+      },
+      {
+        "name": "Update Goods",
+        "request": {
+          "method": "PUT",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\"price\": 149.99, \"stock_count\": 25}"
+          },
+          "url": {
+            "raw": "http://localhost:8002/inventory/{item_id}",
+            "protocol": "http",
+            "host": [
+              "localhost"
+            ],
+            "port": "8002",
+            "path": [
+              "inventory",
+              "{item_id}"
+            ]
+          }
+        },
+        "response": []
+      },
+      {
+        "name": "Deduct Goods",
+        "request": {
+          "method": "DELETE",
+          "header": [],
+          "url": {
+            "raw": "http://localhost:8002/inventory/{item_id}",
+            "protocol": "http",
+            "host": [
+              "localhost"
+            ],
+            "port": "8002",
+            "path": [
+              "inventory",
+              "{item_id}"
+            ]
+          }
+        },
+        "response": []
+      },
+      {
+        "name": "Deduct Goods Insufficient Stock",
+        "request": {
+          "method": "DELETE",
+          "header": [],
+          "url": {
+            "raw": "http://localhost:8002/inventory/{item_id}",
+            "protocol": "http",
+            "host": [
+              "localhost"
+            ],
+            "port": "8002",
+            "path": [
+              "inventory",
+              "{item_id}"
+            ]
+          }
+        },
+        "response": []
+      }
+    ]
+  }
+  

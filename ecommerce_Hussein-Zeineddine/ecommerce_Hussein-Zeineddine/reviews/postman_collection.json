@@ -1,0 +1,187 @@
+{
+    "info": {
+      "name": "E-Commerce Reviews Service",
+      "description": "Postman collection for testing the Reviews microservice",
+      "_postman_id": "a08a7c5f-2c1b-429a-b574-c12345678900",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+      {
+        "name": "Submit Review",
+        "request": {
+          "url": {
+            "raw": "http://localhost:8003/reviews",
+            "protocol": "http",
+            "host": [
+              "localhost"
+            ],
+            "port": "8003",
+            "path": [
+              "reviews"
+            ]
+          },
+          "method": "POST",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Authorization",
+              "value": "Bearer {{access_token}}"
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"product_id\": 1,\n  \"rating\": 4,\n  \"comment\": \"Good quality.\"\n}"
+          }
+        },
+        "response": []
+      },
+      {
+        "name": "Update Review",
+        "request": {
+          "url": {
+            "raw": "http://localhost:8003/reviews/{{review_id}}",
+            "protocol": "http",
+            "host": [
+              "localhost"
+            ],
+            "port": "8003",
+            "path": [
+              "reviews",
+              "{{review_id}}"
+            ]
+          },
+          "method": "PUT",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Authorization",
+              "value": "Bearer {{access_token}}"
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"rating\": 5,\n  \"comment\": \"Actually, it's great!\"\n}"
+          }
+        },
+        "response": []
+      },
+      {
+        "name": "Delete Review",
+        "request": {
+          "url": {
+            "raw": "http://localhost:8003/reviews/{{review_id}}",
+            "protocol": "http",
+            "host": [
+              "localhost"
+            ],
+            "port": "8003",
+            "path": [
+              "reviews",
+              "{{review_id}}"
+            ]
+          },
+          "method": "DELETE",
+          "header": [
+            {
+              "key": "Authorization",
+              "value": "Bearer {{access_token}}"
+            }
+          ]
+        },
+        "response": []
+      },
+      {
+        "name": "Get Product Reviews",
+        "request": {
+          "url": {
+            "raw": "http://localhost:8003/reviews/product/{{product_id}}",
+            "protocol": "http",
+            "host": [
+              "localhost"
+            ],
+            "port": "8003",
+            "path": [
+              "reviews",
+              "product",
+              "{{product_id}}"
+            ]
+          },
+          "method": "GET",
+          "header": [
+            {
+              "key": "Authorization",
+              "value": "Bearer {{access_token}}"
+            }
+          ]
+        },
+        "response": []
+      },
+      {
+        "name": "Get Customer Reviews",
+        "request": {
+          "url": {
+            "raw": "http://localhost:8003/reviews/customer/{{customer_id}}",
+            "protocol": "http",
+            "host": [
+              "localhost"
+            ],
+            "port": "8003",
+            "path": [
+              "reviews",
+              "customer",
+              "{{customer_id}}"
+            ]
+          },
+          "method": "GET",
+          "header": [
+            {
+              "key": "Authorization",
+              "value": "Bearer {{access_token}}"
+            }
+          ]
+        },
+        "response": []
+      },
+      {
+        "name": "Moderate Review (Flag/Approve)",
+        "request": {
+          "url": {
+            "raw": "http://localhost:8003/reviews/{{review_id}}/moderate",
+            "protocol": "http",
+            "host": [
+              "localhost"
+            ],
+            "port": "8003",
+            "path": [
+              "reviews",
+              "{{review_id}}",
+              "moderate"
+            ]
+          },
+          "method": "POST",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Authorization",
+              "value": "Bearer {{admin_token}}"
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"action\": \"flag\"\n}"
+          }
+        },
+        "response": []
+      }
+    ]
+  }
+  

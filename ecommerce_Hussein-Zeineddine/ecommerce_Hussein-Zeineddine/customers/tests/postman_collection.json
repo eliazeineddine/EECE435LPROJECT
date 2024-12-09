@@ -1,0 +1,197 @@
+{
+  "info": {
+    "_postman_id": "c08b8e12-54fa-478b-bf6f-f1f9ef5c5dfe",
+    "name": "Customer Service API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Customer Registration",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"full_name\": \"John Doe\", \"username\": \"johndoe\", \"password\": \"securepassword\", \"age\": 30, \"address\": \"123 Main St\", \"gender\": \"Male\", \"marital_status\": \"Single\"}"
+        },
+        "url": {
+          "raw": "http://localhost:8001/customers/register",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8001",
+          "path": [
+            "customers",
+            "register"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Register Existing Username",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"full_name\": \"John Doe\", \"username\": \"johndoe\", \"password\": \"securepassword\", \"age\": 30, \"address\": \"123 Main St\", \"gender\": \"Male\", \"marital_status\": \"Single\"}"
+        },
+        "url": {
+          "raw": "http://localhost:8001/customers/register",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8001",
+          "path": [
+            "customers",
+            "register"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Customer",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8001/customers/johndoe",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8001",
+          "path": [
+            "customers",
+            "johndoe"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Nonexistent Customer",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8001/customers/nonexistent",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8001",
+          "path": [
+            "customers",
+            "nonexistent"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Charge Wallet",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"amount\": 100.0}"
+        },
+        "url": {
+          "raw": "http://localhost:8001/customers/johndoe/charge",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8001",
+          "path": [
+            "customers",
+            "johndoe",
+            "charge"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Deduct Wallet",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"amount\": 50.0}"
+        },
+        "url": {
+          "raw": "http://localhost:8001/customers/johndoe/deduct",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8001",
+          "path": [
+            "customers",
+            "johndoe",
+            "deduct"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Deduct Wallet (Insufficient Funds)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"amount\": 100.0}"
+        },
+        "url": {
+          "raw": "http://localhost:8001/customers/johndoe/deduct",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8001",
+          "path": [
+            "customers",
+            "johndoe",
+            "deduct"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

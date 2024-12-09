@@ -1,0 +1,12 @@
+# sales/requirements.txt
+
+fastapi
+uvicorn
+sqlalchemy
+psycopg2-binary
+pydantic
+python-jose
+passlib[bcrypt]
+pytest
+pytest-cov
+requests
